@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0</TargetFrameworks>
+		<Description>Draco Bindings for .NET</Description>
+		<PackageTags>Evergine;C#;3D;Draco;GLTF</PackageTags>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryUrl>https://github.com/EvergineTeam/Draco.Net</RepositoryUrl>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="runtimes\**" PackagePath="runtimes" />
+	</ItemGroup> 
+
+	<ItemGroup>
+		<None Update="runtimes\win-x64\native\*.dll">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<!-- <None Update="runtimes\wasm\native\*.a">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None> -->
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="Resources\NugetIcon\icon.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+	
+</Project>
