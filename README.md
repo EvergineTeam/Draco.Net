@@ -41,7 +41,7 @@ git clone https://github.com/EvergineTeam/draco.git
 cd draco
 ```
 
-### Build for windows
+## Build for windows
 
 You need:
 - [CMake](https://cmake.org/download)
@@ -54,7 +54,7 @@ cmake --build build --target draco_tiny_dec --config Release
 
 Your compiler .dll will be found in `build/Release/draco_tiny_dec.dll`
 
-# Build for Wasm
+## Build for Wasm
 
 You need:
 - [CMake](https://cmake.org/download)
@@ -72,4 +72,20 @@ This will compile a static library (.a) for Wasm. The outout be found in `build_
 
 NOTE:
 Unlike in other platforms, in Wasm, we need to use a static library. Emscripten doesn't have good support for shared libraries and performance is much worse.
+
+## Build nuget
+
+Copy the compiled native libraries to this repo:
+- Windows: Evergine.Bindings.Draco/runtimes/win-x64/native/draco_tiny_dec.dll
+- Wasm: Evergine.Bindings.Draco/build/wasm/draco_tiny_dec.a
+
+Run the `Generate-Nugets.ps1` script.
+
+There is also a github Action for publishing the nuget to [](https://www.nuget.org/packages/Evergine.Bindings.Draco).
+
+## Using the nuget in your project
+
+Just add the nuget dependency to your project.
+
+NOTE: for Wasm, you will also need to add the dependency to the `.Web` project! This is because the static library needs to be linked to the executable (not to a dll).
 
