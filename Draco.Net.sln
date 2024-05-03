@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34728.176
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draco", "Evergine.Bindings.Draco.csproj", "{B1CAC611-B110-4F8E-92BD-3ACB4D3E5CB0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draco", "Evergine.Bindings.Draco\Evergine.Bindings.Draco.csproj", "{B1CAC611-B110-4F8E-92BD-3ACB4D3E5CB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

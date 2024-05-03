@@ -10,16 +10,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Content Include="build\**" PackagePath="build" />
 		<Content Include="runtimes\**" PackagePath="runtimes" />
-	</ItemGroup> 
-
-	<ItemGroup>
-		<None Update="runtimes\win-x64\native\*.dll">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-		<!-- <None Update="runtimes\wasm\native\*.a">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None> -->
 	</ItemGroup>
 
 	<ItemGroup>
