@@ -121,6 +121,11 @@ namespace Evergine.Bindings.Draco
             public DataType dataType;
             public UInt32 dataSize;
             public IntPtr data;
+
+            public Span<T> GetDataSpan<T>()
+            {
+                return new Span<T>((T*)data, (int)dataSize);
+            }
         };
 
         enum DecompressReturnCode : int
