@@ -41,43 +41,62 @@ git clone https://github.com/EvergineTeam/draco.git
 cd draco
 ```
 
-## Build for windows
+## Build for windows and UWP
 
 You need:
+- Python3
 - [CMake](https://cmake.org/download)
 - Visual Studio C++
 
+Just run the `build.py` script
 ```ps1
-cmake -B build -DCMAKE_BUILD_TYPE=Release -DDRACO_TINY_DECODE_SHARED_LIB=ON --log-level=VERBOSE
-cmake --build build --target draco_tiny_dec --config Release
+python build.py
 ```
-
-Your compiler .dll will be found in `build/Release/draco_tiny_dec.dll`
 
 ## Build for Wasm
 
 You need:
+- Python3
 - [CMake](https://cmake.org/download)
 - [Emscripten SDK](https://emscripten.org/docs/getting_started/downloads.html)
 - [Ninja](https://ninja-build.org/)
 
-```ps1
-mkdir build_wasm
-cd build_wasm
-cmake .. -DCMAKE_BUILD_TYPE=Release -G "Ninja" -DDRACO_TINY_DECODE_SHARED_LIB=ON --log-level=VERBOSE -DCMAKE_TOOLCHAIN_FILE=<EMSCRIPTEN_SDK>\upstream\emscripten\cmake\Modules\Platform\Emscripten.cmake -DCMAKE_CROSSCOMPILING_EMULATOR=<EMSCRIPTEN_SDK>/node/16.20.0_64bit/bin/node.exe -DDRACO_WASM=ON
-ninja
-```
+Run the build.py script, and provide the path to the Emscripten SDK:
 
-This will compile a static library (.a) for Wasm. The outout be found in `build_wasm/libdraco_tiny_dec.a`.
+```ps1
+python build.py --emscripten_sdk C:/APPS/emsdk
+```
 
 NOTE:
 Unlike in other platforms, in Wasm, we need to use a static library. Emscripten doesn't have good support for shared libraries and performance is much worse.
 
+## Build for Android
+
+You need:
+- Python3
+- [CMake](https://cmake.org/download)
+- [Android NDK](https://developer.android.com/ndk/downloads)
+- [Ninja](https://ninja-build.org/)
+
+Run the build.py script, and provide the path to the Android NDK:
+
+```ps1
+python build.py --android_ndk C:/APPS/android-ndk-r26d
+```
+
+## Compile for all platforms
+
+If you can compile all platforms with a single cmd:
+
+```ps1
+python build.py --emscripten_sdk C:/APPS/emsdk --android_ndk C:/APPS/android-ndk-r26d
+```
+
 ## Build nuget
 
-Copy the compiled native libraries to this repo:
-- Windows: Evergine.Bindings.Draco/runtimes/win-x64/native/draco_tiny_dec.dll
-- Wasm: Evergine.Bindings.Draco/build/wasm/draco_tiny_dec.a
+You will find all the compiled libraries in the "build/OUT" folder.
+
+Copy the contents of "build/OUT" to this repo inside "Evergine.Bindings.Draco".
 
 Run the `Generate-Nugets.ps1` script.
 
