@@ -53,8 +53,6 @@ Just run the `build.py` script
 python build.py
 ```
 
-Your compiled .dll's will be found in `build/windows/Release/draco_tiny_dec.dll`, `build/uwp/Win32/Release/draco_tiny_dec.dll`, and so on.
-
 ## Build for Wasm
 
 You need:
@@ -68,8 +66,6 @@ Run the build.py script, and provide the path to the Emscripten SDK:
 ```ps1
 python build.py --emscripten_sdk C:/APPS/emsdk
 ```
-
-This will compile a static library (.a) for Wasm. The output be found in `build/wasm/libdraco_tiny_dec.a`.
 
 NOTE:
 Unlike in other platforms, in Wasm, we need to use a static library. Emscripten doesn't have good support for shared libraries and performance is much worse.
@@ -88,8 +84,6 @@ Run the build.py script, and provide the path to the Android NDK:
 python build.py --android_ndk C:/APPS/android-ndk-r26d
 ```
 
-Your compiled .so's will be found in `build/android/arm/libdraco_tiny_dec.so`, and so on.
-
 ## Compile for all platforms
 
 If you can compile all platforms with a single cmd:
@@ -100,9 +94,9 @@ python build.py --emscripten_sdk C:/APPS/emsdk --android_ndk C:/APPS/android-ndk
 
 ## Build nuget
 
-Copy the compiled native libraries to this repo:
-- Windows: Evergine.Bindings.Draco/runtimes/win-x64/native/draco_tiny_dec.dll
-- Wasm: Evergine.Bindings.Draco/build/wasm/draco_tiny_dec.a
+You will find all the compiled libraries in the "build/OUT" folder.
+
+Copy the contents of "build/OUT" to this repo inside "Evergine.Bindings.Draco".
 
 Run the `Generate-Nugets.ps1` script.
 
