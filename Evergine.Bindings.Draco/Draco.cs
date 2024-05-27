@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+using Evergine.LibraryLoader;
 
 namespace Evergine.Bindings.Draco
 {
@@ -80,6 +82,19 @@ namespace Evergine.Bindings.Draco
             DT_BOOL,
             DT_TYPES_COUNT
         };
+
+        static Draco()
+        {
+            //DllRegister.Register(typeof(Draco).Assembly);
+            LibraryLoader.LibraryLoader.Instance.Register(
+                Library.Create(LibName)
+                .AddConfig(
+                    ManualConfig.Create()
+                        .SetWindows_x64(Path.Combine(Path.GetDirectoryName(typeof(Draco).Assembly.Location), "runtimes/win-x64/native"))
+                        .SetWindows_x86(Path.Combine(Path.GetDirectoryName(typeof(Draco).Assembly.Location), "runtimes/win-x86/native")))
+                .SetPlatform(Platform.Windows, $"{LibName}.dll")
+            ).Load();
+        }
 
         public static uint GetSize(DataType t)
         {

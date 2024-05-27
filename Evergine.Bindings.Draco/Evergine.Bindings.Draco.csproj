@@ -10,8 +10,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Include="build\**" PackagePath="build" />
-		<Content Include="runtimes\**" PackagePath="runtimes" />
+		<Content Include="build\**" PackagePath="build" Visible="true" />
+		<Content Include="runtimes\**" PackagePath="runtimes" Visible="true" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -20,5 +20,9 @@
 			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
-	
+
+	<ItemGroup>
+	  <PackageReference Include="Evergine.LibraryLoader" Version="0.0.7" />
+	</ItemGroup>
+
 </Project>
