@@ -85,13 +85,14 @@ namespace Evergine.Bindings.Draco
 
         static Draco()
         {
-            //DllRegister.Register(typeof(Draco).Assembly);
+            var baseDir = Path.GetDirectoryName(typeof(Draco).Assembly.Location);
+
             LibraryLoader.LibraryLoader.Instance.Register(
                 Library.Create(LibName)
-                .AddConfig(
-                    ManualConfig.Create()
-                        .SetWindows_x64(Path.Combine(Path.GetDirectoryName(typeof(Draco).Assembly.Location), "runtimes/win-x64/native"))
-                        .SetWindows_x86(Path.Combine(Path.GetDirectoryName(typeof(Draco).Assembly.Location), "runtimes/win-x86/native")))
+                .AddConfig( ManualConfig.Create()
+                    .SetWindows_x64(Path.Combine(baseDir, "runtimes/win-x64/native"))
+                    .SetWindows_x86(Path.Combine(baseDir, "runtimes/win-x86/native"))
+                )
                 .SetPlatform(Platform.Windows, $"{LibName}.dll")
             ).Load();
         }
