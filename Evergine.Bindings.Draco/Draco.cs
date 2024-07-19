@@ -89,11 +89,7 @@ namespace Evergine.Bindings.Draco
 
             LibraryLoader.LibraryLoader.Instance.Register(
                 Library.Create(LibName)
-                .AddConfig( ManualConfig.Create()
-                    .SetWindows_x64(Path.Combine(baseDir, "runtimes/win-x64/native"))
-                    .SetWindows_x86(Path.Combine(baseDir, "runtimes/win-x86/native"))
-                )
-                .SetPlatform(Platform.Windows, $"{LibName}.dll")
+                .AddConfig(DefaultConfig.Instance.WithBaseDirectory(baseDir))
             ).Load();
         }
 

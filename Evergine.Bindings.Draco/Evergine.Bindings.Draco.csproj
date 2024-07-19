@@ -22,7 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Evergine.LibraryLoader" Version="0.0.7" />
+	  <PackageReference Include="Evergine.LibraryLoader" Version="0.0.9" />
 	</ItemGroup>
 
 </Project>
