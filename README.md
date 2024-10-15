@@ -6,7 +6,7 @@ Basic usage:
 
 Draco.Mesh mesh = Draco.Decompress(compressedData, compressedDataSize);
 
-for(UInt32 aitribI = 0; attribI < mesh.numAttributes; attribI)
+for(UInt32 aitribI = 0; attribI < mesh.numAttributes; attribI++)
 {
     Attribute attrib = mesh.GetAttribute(attribI);
 
