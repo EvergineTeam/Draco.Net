@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
-using System.Text;
-using Evergine.LibraryLoader;
 
 namespace Evergine.Bindings.Draco
 {
@@ -82,16 +79,6 @@ namespace Evergine.Bindings.Draco
             DT_BOOL,
             DT_TYPES_COUNT
         };
-
-        static Draco()
-        {
-            var baseDir = Path.GetDirectoryName(typeof(Draco).Assembly.Location);
-
-            LibraryLoader.LibraryLoader.Instance.Register(
-                Library.Create(LibName)
-                .AddConfig(DefaultConfig.Instance.WithBaseDirectory(baseDir))
-            ).Load();
-        }
 
         public static uint GetSize(DataType t)
         {

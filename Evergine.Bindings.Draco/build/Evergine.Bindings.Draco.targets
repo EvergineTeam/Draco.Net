@@ -1,7 +1,7 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	
-    <ItemGroup>
-		<NativeFileReference Include="$(MSBuildThisFileDirectory)/wasm/draco_tiny_dec.a" ScanForPInvokes="true" />
-    </ItemGroup>
-	
+
+	<ItemGroup Condition="$(RuntimeIdentifier) == 'browser-wasm'">
+		<NativeFileReference Include="$(MSBuildThisFileDirectory)..\runtimes\browser-wasm\draco_tiny_dec.a" ScanForPInvokes="true" />
+	</ItemGroup>
+
 </Project>
