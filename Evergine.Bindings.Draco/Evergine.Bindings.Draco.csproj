@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net8.0</TargetFrameworks>
 		<Description>Draco Bindings for .NET</Description>
 		<PackageTags>Evergine;C#;3D;Draco;GLTF</PackageTags>
 		<PackageIcon>icon.png</PackageIcon>
