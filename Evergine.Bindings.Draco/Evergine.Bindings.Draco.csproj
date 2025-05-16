@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net8.0</TargetFrameworks>
 		<Description>Draco Bindings for .NET</Description>
 		<PackageTags>Evergine;C#;3D;Draco;GLTF</PackageTags>
 		<PackageIcon>icon.png</PackageIcon>
@@ -19,10 +19,6 @@
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
 		</None>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <PackageReference Include="Evergine.LibraryLoader" Version="0.0.9" />
 	</ItemGroup>
 
 </Project>
