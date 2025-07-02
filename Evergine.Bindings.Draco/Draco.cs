@@ -154,7 +154,11 @@ namespace Evergine.Bindings.Draco
 
         // --- Bindings to the native Draco imported library ---
         #region BINDINGS
+#if __IOS__
+        public const string LibName = "__Internal";
+#else
         private const string LibName = "draco_tiny_dec";
+#endif
 
         [DllImport(LibName)]
         private static extern unsafe DecompressReturnCode Draco_Decompress(
