@@ -10,7 +10,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Include="build\**" PackagePath="build" Visible="true" />
+		<Content Include="buildTransitive\Evergine.Bindings.Draco.targets" PackagePath="buildTransitive" Visible="true" />
 		<Content Include="runtimes\**" PackagePath="runtimes" Visible="true" />
 	</ItemGroup>
 
